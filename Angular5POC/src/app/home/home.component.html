@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align: center">
+	<h1>Welcome to {{ title }}</h1>
+	<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"
+		[disableDefaultUI]="false" [zoomControl]="false"> <agm-marker
+		*ngFor="let m of markers; let i = index"
+		(markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat"
+		[longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable">
+		<agm-info-window> 
+			<strong>InfoWindow content</strong>
+		</agm-info-window> 
+		</agm-marker> 
+		<agm-kml-layer suppressInfoWindows="true"
+		url="http://data.fingal.ie/datasets/kml/Garda_Stations.kml"
+		contenteditable="true"> 
+		</agm-kml-layer> 
+	</agm-map>
+
+
+
+	<div class="item">
+		<label> <input type="checkbox" onchange=""> Show the KML Layer
+		</label>
+	</div>
+
+
+	<!-- <gm-map options="{center: [40.740,-74.18], zoom: 12}"> -->
+	<!--   <gm-kmlLayer -->
+	<!--     ng-show="showKMLLayer" -->
+	<!--     options="{url:'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml', opts: {suppressInfoWindows: true}}" -->
+	<!--     ></gm-kmlLayer> -->
+	<!-- </gm-map> -->
+</div>
